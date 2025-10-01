@@ -64,22 +64,26 @@
             android:orientation="horizontal"
             android:layout_marginTop="30dp">
             <Button
+                android:id="@+id/btnArea"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Area"
                 android:layout_marginHorizontal="10dp"/>
             <Button
+                android:id="@+id/btnPerimetro"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Perimetro"
                 android:layout_marginHorizontal="10dp"/>
             <Button
+                android:id="@+id/btnTipo"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Tipo"
                 android:layout_marginHorizontal="10dp"/>
         </LinearLayout>
         <TextView
+            android:id="@+id/txvRes"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Resultado : "
