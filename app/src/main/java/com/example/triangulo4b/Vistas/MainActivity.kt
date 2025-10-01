@@ -1,4 +1,4 @@
-package com.example.triangulo4b
+package com.example.triangulo4b.Vistas
 
 import android.os.Bundle
 import android.widget.Button
@@ -8,9 +8,18 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
-import kotlin.math.sqrt
+import com.example.triangulo4b.Contratos.ContratoTriangulo
+import com.example.triangulo4b.Presentadores.TrianguloPresentador
+import com.example.triangulo4b.R
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : AppCompatActivity(), ContratoTriangulo.Vista {
+
+    //declaramos a txtrespara poder usarlo
+    private lateinit var txvRes: TextView
+    //declaramos el presentador que vamos a ocupar en la vista
+    private lateinit var presentador: ContratoTriangulo.Presentador
+
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -24,7 +33,10 @@ class MainActivity : AppCompatActivity() {
         val btnArea=findViewById<Button>(R.id.btnArea)
         val btnPerimetro=findViewById<Button>(R.id.btnPerimetro)
         val btnTipo=findViewById<Button>(R.id.btnTipo)
-        val txvRes=findViewById<TextView>(R.id.txvRes)
+        txvRes=findViewById<TextView>(R.id.txvRes)
+
+        //inicializamos al presentador
+        presentador= TrianguloPresentador(this)
 
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
@@ -36,34 +48,39 @@ class MainActivity : AppCompatActivity() {
             val l1= txtl1.text.toString().toFloat()
             val l2=txtl2.text.toString().toFloat()
             val l3=txtl3.text.toString().toFloat()
-            val p=l1+l2+l3
-            txvRes.text="El perimetro es : ${p}"
+            presentador.perimetro(l1,l2,l3)
         }
 
         btnArea.setOnClickListener {
             val l1= txtl1.text.toString().toFloat()
             val l2=txtl2.text.toString().toFloat()
             val l3=txtl3.text.toString().toFloat()
-            val s=(l1+l2+l3)/2
-            val a= sqrt(s*(s-l1)*(s-l2)*(s-l3))
-            txvRes.text="El are a es : ${a}"
+            presentador.area(l1,l2,l3)
         }
 
         btnTipo.setOnClickListener {
             val l1= txtl1.text.toString().toFloat()
             val l2=txtl2.text.toString().toFloat()
             val l3=txtl3.text.toString().toFloat()
-            var tipo=""
-            if(l1==l2 && l2==l3)
-                tipo="El triangulo es Equilatero"
-            else if(l1!=l2 && l2!=l3 && l3!=l1)
-                tipo= "El triangulo es escaleno"
-            else
-                tipo="El triangulo es isoceles"
-
-            txvRes.text=tipo
+            presentador.tipo(l1,l2,l3)
         }
 
+    }
+
+    override fun showArea(area: Float) {
+        txvRes.text="El area es : ${area}"
+    }
+
+    override fun showPerimetro(perimetro: Float) {
+        txvRes.text="El perimetro es : ${perimetro}"
+    }
+
+    override fun showTipo(tipo: String) {
+        txvRes.text="El triangulo es ${tipo}"
+    }
+
+    override fun showError(msg: String) {
+        txvRes.text=msg
     }
 
 }
