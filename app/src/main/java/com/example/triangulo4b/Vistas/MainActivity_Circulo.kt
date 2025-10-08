@@ -54,7 +54,6 @@ class MainActivity_Circulo : AppCompatActivity() , ContratoCirculo.Vista{
 
     }
     //regresar a la pantalla principal
-
     fun clickregresar(view: View)
     {
             val salir= Intent(this, MainActivity_Inicio::class.java)

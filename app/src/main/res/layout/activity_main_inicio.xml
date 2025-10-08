@@ -13,30 +13,16 @@
         android:layout_height="match_parent"
         android:layout_margin="30dp"
         android:orientation="vertical"
-        android:gravity="center">
 
         <TextView
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Elige una figura"
-            android:textSize="30dp"
             android:textAlignment="center"
-            android:textStyle="italic"
-            android:layout_marginTop="35dp"/>
 
-        <Spinner
-            android:id="@+id/spnOpcion"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="35dp"/>
-
         <Button
-            android:id="@+id/btnIr"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Ir"
-            android:layout_marginTop="35dp"/>
 
     </LinearLayout>
-
 </androidx.constraintlayout.widget.ConstraintLayout>

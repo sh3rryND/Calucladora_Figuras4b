@@ -1,16 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    tools:ignore="MissingLeanbackLauncher">
-
-    <uses-permission android:name="android.permission.INTERNET" />
-
-    <uses-feature
-        android:name="android.hardware.touchscreen"
-        android:required="false" />
-    <uses-feature
-        android:name="android.software.leanback"
-        android:required="false" />
+    xmlns:tools="http://schemas.android.com/tools">
 
     <application
         android:allowBackup="true"
@@ -22,26 +12,13 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Triangulo4B">
         <activity
-            android:name=".Vistas.MainActivity_Inicio"
+            android:name=".Vistas.MainActivity"
             android:exported="true">
-        <intent-filter>
-            <action android:name="android.intent.action.MAIN" />
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
 
-            <category android:name="android.intent.category.LAUNCHER" />
-        </intent-filter>
-        </activity>
-        <activity
-            android:name=".Vistas.MainActivity_Circulo"
-            android:exported="false" />
-        <activity
-            android:name=".Vistas.MainActivity_Cuadrado"
-            android:exported="false"
-            android:theme="@style/Theme.Triangulo4B" />
-
-
-        <activity
-            android:name=".Vistas.MainActivity_Triangulo"
-            android:exported="false">
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
     </application>
 
