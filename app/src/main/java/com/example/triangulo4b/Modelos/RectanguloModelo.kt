@@ -13,7 +13,7 @@ class RectanguloModelo: ContratoRectangulo.Modelo {
         return peri
     }
 
-    override fun validarRectangulo(lado1: Float, lado2: Float): Boolean {
+    override fun validarRectangulo (lado1: Float, lado2: Float): Boolean {
         if(lado1==lado2)
             return false
         else

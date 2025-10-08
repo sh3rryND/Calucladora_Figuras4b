@@ -18,12 +18,14 @@ class MainActivity_Inicio : AppCompatActivity() {
         enableEdgeToEdge()
         setContentView(R.layout.activity_main_inicio)
 
-        val spinner=findViewById<Spinner>(R.id.spnOpcion)
-        val boton=findViewById<Button>(R.id.btnIr)
-        val opciones=arrayOf("Triangulo","Rectangulo")
+        val spinner = findViewById<Spinner>(R.id.spnOpcion)
+        val boton = findViewById<Button>(R.id.btnIr)
+        val opciones = arrayOf("Triangulo", "Rectangulo", "Circulo", "Cuadrado")
 
-        val adaptador= ArrayAdapter<String>(this,opciones)
-        spinner.adapter=adaptador
+        val adaptador= ArrayAdapter<String>(this,
+            androidx.appcompat.R.layout.support_simple_spinner_dropdown_item,
+            opciones)
+        spinner.adapter = adaptador
 
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
@@ -31,16 +33,27 @@ class MainActivity_Inicio : AppCompatActivity() {
             insets
         }
         boton.setOnClickListener {
-            when(spinner.selectedItem.toString()){
-                "Triangulo"->{
-                    val intent= Intent(this, MainActivity_Triangulo::class.java)
+            when (spinner.selectedItem.toString()) {
+                "Triangulo" -> {
+                    val intent = Intent(this, MainActivity_Triangulo::class.java)
                     startActivity(intent)
                 }
-                "Rectangulo"->{
-                    val intent= Intent(this, MainActivity_Rectangulo::class.java)
-                    startActivity(intent)
-                }
-    }
 
+                "Rectangulo" -> {
+                    val intent = Intent(this, MainActivity_Rectangulo::class.java)
+                    startActivity(intent)
+                }
+
+                "Circulo" -> {
+                    val intent = Intent(this, MainActivity_Circulo::class.java)
+                    startActivity(intent)
+                }
+
+                "Cuadrado" -> {
+                    val intent = Intent(this, MainActivity_Cuadrado::class.java)
+                    startActivity(intent)
+                }
+            }
+        }
     }
 }
